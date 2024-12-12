@@ -56,8 +56,12 @@ Follow these steps to set up the project locally:
   - Payload: `{ "username": "", "password": "", "email": "" }`
 
 - **Login**:
-  - Endpoint: `POST /api/token/`
+  - Endpoint: `POST /api/login/`
   - Payload: `{ "email": "", "password": "" }`
+
+- **Refresh Token**:
+  - Endpoint: `POST /auth/refresh/`
+  - Payload: `{ "refresh": ""}`
 
 - **Password Reset**:
   1. Request Reset:
