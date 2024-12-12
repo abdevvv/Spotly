@@ -51,28 +51,16 @@ Follow these steps to set up the project locally:
 
 ### API Endpoints
 
-- **User Registration**:
-  - Endpoint: `POST /api/register/`
-  - Payload: `{ "username": "", "password": "", "email": "" }`
+-
+| Endpoint                              | Method | Payload                                      | Response                                                                                       |
+|---------------------------------------|--------|----------------------------------------------|-----------------------------------------------------------------------------------------------|
+| `/api/register/`                      | POST   | `{ "username": "", "password": "", "email": "" }` | `{ "id": 1, "username": "", "email": "" }`                                             |
+| `/api/login/`                         | POST   | `{ "email": "", "password": "" }`             | `{ "access": "<jwt_token>", "refresh": "<refresh_token>" }`                             |
+| `/auth/refresh/`                      | POST   | `{ "refresh": "" }`                            | `{ "access": "<new_jwt_token>" }`                                                         |
+| `/auth/email_request/`                | POST   | `{ "email": "" }`                                 | `{ "message": "Password reset link sent to email." }`                                      |
+| `/auth/check_otp/`                    | POST   | `{ "token": "", "otp": "" }`                   | `{ "message": "OTP is valid." }`                                                          |
+| `/auth/reset_password/`               | POST   | `{ "token": "", "new_password": "" }`            | `{ "message": "Password has been reset successfully." }`                                   |
 
-- **Login**:
-  - Endpoint: `POST /api/login/`
-  - Payload: `{ "email": "", "password": "" }`
-
-- **Refresh Token**:
-  - Endpoint: `POST /auth/refresh/`
-  - Payload: `{ "refresh": ""}`
-
-- **Password Reset**:
-  1. Request Reset:
-     - Endpoint: `POST /auth/email_request/`
-     - Payload: `{ "email": "" }`
-  2. Check Reset OTP:
-     - Endpoint: `POST /auth/check_otp/`
-     - Payload: `{ "token": "", "otp": "" }`
-  3. Change Password:
-     - Endpoint `POST /auth/reset_password/`
-     - Playload `{"token":"","new_password":""}`
       
 ### Highlight: Reset Password Feature
 The password reset feature ensures a secure workflow:
