@@ -7,6 +7,7 @@ An advanced authentication system built with Django REST Framework (DRF), featur
 - **JWT Token Authentication**: Secure user login and token management.
 - **Password Reset**: A seamless password recovery process with email verification.
 - **User Registration**: Flexible user signup with validation.
+- **User Activation**: User activation from powerfull unfold dashboard.
 - **Account Management**: Update and manage user details efficiently.
 - **Secure API Endpoints**: Fully protected endpoints using DRF permissions.
 
