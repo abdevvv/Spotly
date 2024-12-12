@@ -90,21 +90,30 @@ class ResetRequestSerializer(serializers.ModelSerializer):
 
 class ResetPasswordSerializer(serializers.Serializer):
     token = serializers.CharField(write_only=True)
-    otp = serializers.CharField(write_only=True)
     new_password = serializers.CharField(write_only=True)
     def validate(self, attrs):
         token = attrs.get('token')
-        otp = attrs.get('otp')
-        #check token and otp availablity
-        try:
-            obj = ResetPassword.objects.get(token=token)
-        except:
-            message = {'detail':"The token is not valid"}
+        #method 1: check if the token is valid and is checked
+        reset_obj = ResetPassword.objects.filter(token=token,is_checked=True)
+        if not reset_obj.exists():
+            message = {
+                'detail':"The token is not valid"
+            }
             raise ValidationError(message)
-        if obj.otp != otp or not obj.is_available():
-            message = {'detail':"the otp is not valid"}
+    
+        #method 2: check if the token is still available
+        obj = reset_obj.first()
+        if not obj.is_available():
+            message = {
+                'detail':"sorry this operation timedout, try again"
+            }
             raise ValidationError(message)
+
+        #define user
         attrs['user'] = obj.user
+
+        #method 3: delete reset_password obj
+        obj.delete()
         return super().validate(attrs)
     
     def create(self, validated_data):
