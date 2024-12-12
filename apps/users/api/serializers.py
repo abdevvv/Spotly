@@ -117,6 +117,7 @@ class ResetPasswordSerializer(serializers.Serializer):
         return super().validate(attrs)
     
     def create(self, validated_data):
+        #change password
         user:User = validated_data['user']
         password = validated_data['new_password']
         user.set_password(password)
