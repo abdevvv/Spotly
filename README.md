@@ -51,18 +51,16 @@ Follow these steps to set up the project locally:
 ## Usage
 
 ### API Endpoints
-
-
 | Endpoint                              | Method | Payload                                      | Response                                                                                       |
 |---------------------------------------|--------|----------------------------------------------|-----------------------------------------------------------------------------------------------|
-| `/api/register/`                      | POST   | `{ "email": "", "username": "", "password": "", "phoneNumber": "", "image": "", "dateBirth": "", "gender": "" }` | `{ "id": 1, "email": "", "username": "", "phoneNumber": "", "is_activated": true }` |
-| `/api/login/`                         | POST   | `{ "email": "", "password": "" }`             | `{ "access": "<jwt_token>", "refresh": "<refresh_token>", "is_activated": true }`      |
-| `/auth/refresh/`                      | POST   | `{ "refresh": "" }`                            | `{ "access": "<new_jwt_token>" }`                                                         |
-| `/auth/email_request/`                | POST   | `{ "email": "" }`                                 | `{ "token": "<reset_token>", "message": "Password reset link sent to email." }`         |
-| `/auth/check_otp/`                    | POST   | `{ "token": "", "otp": "" }`                   | `{ "message": "OTP is valid." }`                                                          |
-| `/auth/reset_password/`               | POST   | `{ "token": "", "new_password": "" }`            | `{ "message": "The Password has been reset successfully." }`                              |
-| `/api/user/`                          | GET    | None                                               | `{ "email": "", "username": "", "phoneNumber": "", "image": "", "dateBirth": "", "gender": "", "is_activated": true }` |
-| `/api/user/`                          | PATCH  | `{ "email": "", "username": "", "phoneNumber": "", "image": "", "dateBirth": "", "gender": "" }` | `{ "email": "", "username": "", "phoneNumber": "", "image": "", "dateBirth": "", "gender": "", "is_activated": true }` |
+| `/api/register/`                      | POST   | `{ "email": "<email>", "username": "<username>", "password": "<password>", "phoneNumber": "<phone_number>", "image": "<image>", "dateBirth": "<date_of_birth>", "gender": "<gender>" }` | `{ "email": "<email>", "username": "<username>", "phoneNumber": "<phone_number>", "image": "<image>", "dateBirth": "<date_of_birth>", "gender": "<gender>", "is_activated": false }` |
+| `/api/login/`                         | POST   | `{ "email": "<email>", "password": "<password>" }`             | `{ "detail": "Logged in Successfully", "data": { "email": "<email>", "is_activated": true }, "token": { "access": "<jwt_token>", "refresh": "<refresh_token>" } }` |
+| `/auth/refresh/`                      | POST   | `{ "refresh": "<refresh_token>" }`                            | `{ "access": "<new_jwt_token>" }`                                                         |
+| `/auth/email_request/`                | POST   | `{ "email": "<email>" }`                                 | `{ "token": "<reset_token>", "message": "Password reset link sent to email." }`         |
+| `/auth/check_otp/`                    | POST   | `{ "token": "<reset_token>", "otp": "<otp>" }`                   | `{ "message": "OTP is valid." }`                                                          |
+| `/auth/reset_password/`               | POST   | `{ "token": "<reset_token>", "new_password": "<new_password>" }`            | `{ "message": "The Password has been reset successfully." }`                              |
+| `/api/user/`                          | GET    | None                                               | `{ "email": "<email>", "username": "<username>", "phoneNumber": "<phone_number>", "image": "<image>", "dateBirth": "<date_of_birth>", "gender": "<gender>", "is_activated": true }` |
+| `/api/user/`                          | PATCH  | `{ "email": "<email>", "username": "<username>", "phoneNumber": "<phone_number>", "image": "<image>", "dateBirth": "<date_of_birth>", "gender": "<gender>" }` | `{ "email": "<email>", "username": "<username>", "phoneNumber": "<phone_number>", "image": "<image>", "dateBirth": "<date_of_birth>", "gender": "<gender>", "is_activated": true }` |
 
       
 ### Highlight: Reset Password Feature
