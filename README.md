@@ -40,7 +40,7 @@ Follow these steps to set up the project locally:
 
 5. Run Celery worker:
    ```bash
-   celery -A project_name worker --loglevel=info
+   celery -A config worker --loglevel=info
    ```
 
 6. Run the development server:
