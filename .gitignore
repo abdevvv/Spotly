@@ -1,2 +1,56 @@
+# Python cache / compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django stuff & db
+*.log
+db.sqlite3
+media/
+staticfiles/
+
+# If using local env vars
 .env
-*.sqlite3
+*.env
+
+# Byte-compiled / optimized / DLL files
+*.so
+*.dll
+*.dylib
+
+# Virtual environment
+venv/
+.env/
+env/
+.venv/
+
+# PyInstaller
+*.spec
+
+# Coverage / test reports
+htmlcov/
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# MyPy & Pyre type checker
+.mypy_cache/
+.dmypy.json
+.pyre/
+
+# IDEs / Editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker
+*.pid
+*.log
+docker-compose.override.yml
