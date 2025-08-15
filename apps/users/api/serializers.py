@@ -12,7 +12,6 @@ from apps.users.tasks import send_email
 class LoginSerializer(serializers.Serializer):
     email = serializers.CharField()
     password = serializers.CharField(required=True,max_length=128, style={"input_type": "password"},write_only=True)
-    is_activated = serializers.BooleanField(required=False,read_only=True)
     class Meta:
         fields = ['email','password','is_activated']
     def validate(self, attrs):
@@ -27,17 +26,15 @@ class LoginSerializer(serializers.Serializer):
             raise ValidationError({'detail':"the user is not activated"})
         
         attrs['user'] = user
-        attrs['is_activated'] = user.is_activated
 
         return attrs
 
 class UserSerializer(serializers.ModelSerializer):
     email = serializers.CharField()
     password = serializers.CharField(required=True,max_length=128, style={"input_type": "password"},write_only=True)
-    is_activated = serializers.BooleanField(required=False,read_only=True)
     class Meta:
         model = User
-        fields = ['email',"username","password","phoneNumber",'image',"dateBirth","gender","is_activated",]
+        fields = ['email',"username","password","phoneNumber",'image',"dateBirth","gender",]
     def validate(self, attrs):
         #check if email exists
         email = attrs.get("email")

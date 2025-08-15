@@ -20,7 +20,6 @@ class User(AbstractUser):
     phoneNumber = models.CharField(null=True, blank=True, max_length=45)
     dateBirth = models.DateField(null=True, blank=True)
     gender = models.TextField(null=True, blank=True, choices=choices_gender)
-    is_activated = models.BooleanField(default=False)
     objects = CustomUserManager()
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["username"]
