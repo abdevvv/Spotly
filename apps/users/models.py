@@ -29,6 +29,9 @@ class User(AbstractUser):
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["username"]
 
+    def is_owner(self):
+        return self.role == "owner"
+
     
 
 class ResetPassword(models.Model):
