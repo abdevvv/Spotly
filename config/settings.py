@@ -44,7 +44,7 @@ DEFUALT_APPS = [
     ]
 
 
-LOCAL_APPS = ['apps.users',]
+LOCAL_APPS = ['apps.users',"apps.business"]
 
 
 THIRD_PARTY_APPS = [
@@ -53,6 +53,7 @@ THIRD_PARTY_APPS = [
     'django_filters',
     'querycount',
     'django_cleanup',
+    "location_field",
     ]
 
 
@@ -234,8 +235,8 @@ SIMPLE_JWT = {
 
 #unfold
 UNFOLD = {
-    "SITE_TITLE": 'config Application',
-    "SITE_HEADER": 'config Dashboard',
+    "SITE_TITLE": 'Spotly Application',
+    "SITE_HEADER": 'Spotly Dashboard',
     "SITE_URL": "/admin/",
     "SITE_SYMBOL": "School",  # symbol from icon set
     "SHOW_HISTORY": True, # show/hide "History" button, default: True
@@ -281,6 +282,33 @@ UNFOLD = {
                         "title": _("Dashboard"),
                         "icon": "dashboard",
                         "link": reverse_lazy("admin:index"),
+                    },
+                  ],
+            },
+            {
+                "title": _("Business"),
+                "separator": True,  # Top border
+                "items": [
+                    {
+                        "title": _("Business"),
+                        "icon": "Business_"
+                        "Center",
+                        "link": reverse_lazy("admin:business_business_changelist"),
+                    },
+                    {
+                        "title": _("Category"),
+                        "icon": "Category",
+                        "link": reverse_lazy("admin:business_category_changelist"),
+                    },
+                    {
+                        "title": _("Review"),
+                        "icon": "Reviews",
+                        "link": reverse_lazy("admin:business_review_changelist"),
+                    },
+                    {
+                        "title": _("Favorite"),
+                        "icon": "Favorite",
+                        "link": reverse_lazy("admin:business_favorite_changelist"),
                     },
                   ],
             },
