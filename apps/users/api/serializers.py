@@ -12,6 +12,7 @@ from apps.users.tasks import send_email
 class LoginSerializer(serializers.Serializer):
     email = serializers.CharField()
     password = serializers.CharField(required=True,max_length=128, style={"input_type": "password"},write_only=True)
+    role = serializers.CharField(read_only=True)
     class Meta:
         fields = ['email','password','is_activated']
     def validate(self, attrs):
@@ -22,10 +23,8 @@ class LoginSerializer(serializers.Serializer):
         if not user:
             raise ValidationError({'detail':"The email or password is not valid ."})
 
-        if not user.is_activated:
-            raise ValidationError({'detail':"the user is not activated"})
-        
         attrs['user'] = user
+        attrs["role"] = user.role
 
         return attrs
 
@@ -34,13 +33,12 @@ class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(required=True,max_length=128, style={"input_type": "password"},write_only=True)
     class Meta:
         model = User
-        fields = ['email',"username","password","phoneNumber",'image',"dateBirth","gender",]
+        fields = ['email',"username","password","phoneNumber",'image',"dateBirth","gender","role"]
     def validate(self, attrs):
         #check if email exists
         email = attrs.get("email")
-        if email:
-            if User.objects.filter(email=email).exists():
-                raise ValidationError({'detail':"The user email had been used, try another email"})
+        if User.objects.filter(email=email).exists():
+            raise ValidationError({'detail':"The user email had been used, try another email"})
         return attrs
     def create(self, validated_data):
         #change user passwd to encrypted passwd

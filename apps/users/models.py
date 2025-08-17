@@ -9,9 +9,13 @@ from datetime import timedelta, datetime
 
 # Create your models here.
 class User(AbstractUser):
-    choices_gender = (
-        ("male", "ذكر"),
-        ("female", "أنثى")
+    gender_choices = (
+        ("male", "Male"),
+        ("female", "Female")
+    )
+    role_choices = (
+        ("owner","Owner"),
+        ("customer","Customer")
     )
     email = models.EmailField(max_length=80, unique=True)
     image = models.ImageField(upload_to='Photos/users/%y/%m/%d', null=True, blank=True)
@@ -19,7 +23,8 @@ class User(AbstractUser):
     password = models.CharField(max_length=128)
     phoneNumber = models.CharField(null=True, blank=True, max_length=45)
     dateBirth = models.DateField(null=True, blank=True)
-    gender = models.TextField(null=True, blank=True, choices=choices_gender)
+    role = models.CharField(choices=role_choices,default="customer")
+    gender = models.TextField(null=True, blank=True, choices=gender_choices)
     objects = CustomUserManager()
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["username"]
