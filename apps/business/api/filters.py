@@ -38,6 +38,7 @@ class BusinessFilter(django_filters.FilterSet):
             ).order_by("distance")
         
         #3rd case return with radius
-        return queryset.annotate(
+        qs = queryset.annotate(
             distance = Distance("location",user_point)
         ).filter(distance__lte=float(radius))
+        return qs
