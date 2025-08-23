@@ -13,7 +13,7 @@ class Business(models.Model):
     description = models.TextField()
     owner = models.ForeignKey("users.User", on_delete=models.CASCADE)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    location = LocationField()
+    location = LocationField(geography=True, srid=4326) #pointfiled
     address = models.CharField(max_length=350)
     phone = models.CharField(max_length=11,null=True)
     website = models.CharField(max_length=50,null=True)
