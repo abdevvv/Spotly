@@ -32,3 +32,6 @@ class Review(models.Model):
 class Favorite(models.Model):
     user = models.ForeignKey("users.User", on_delete=models.CASCADE)
     business = models.ForeignKey(Business,on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('user','business')

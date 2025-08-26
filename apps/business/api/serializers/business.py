@@ -7,6 +7,7 @@ from rest_framework import serializers
 
 from apps.business.models import Business,Favorite,Category
 
+
 class BusinessListSerializer(serializers.ModelSerializer):
     location = serializers.SerializerMethodField()
     distance = serializers.CharField(required=False)
@@ -42,3 +43,4 @@ class BusinessCreateUpdateSerializer(serializers.ModelSerializer):
             lng, lat = value
             return Point(lng, lat, srid=4326)
         return value
+    
