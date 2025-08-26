@@ -1,11 +1,16 @@
 from django.contrib.gis.geos import Point
 
 
-from rest_framework.validators import ValidationError
 from rest_framework import serializers
 
 
-from apps.business.models import Business,Favorite,Category
+from apps.business.models import Business, Category
+
+#categories
+class BusinessCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields= ["id","title"]
 
 
 class BusinessListSerializer(serializers.ModelSerializer):
@@ -15,24 +20,30 @@ class BusinessListSerializer(serializers.ModelSerializer):
         model = Business
         fields = ['id','name','location','distance']
     
+    #[x,y]
     def get_location(self,obj):
         return [obj.location.x, obj.location.y] if obj.location else None
 
     
 class BusinessDetailSerializer(serializers.ModelSerializer):
     location = serializers.SerializerMethodField()
+    category = BusinessCategorySerializer()
     distance = serializers.CharField(required=False)
     class Meta:
         model = Business
         fields = "__all__"
     
+    #[x,y]
     def get_location(self,obj):
         return [obj.location.x, obj.location.y] if obj.location else None
+
+    # def get_category(self,obj):
+    #     return obj.category.title
 
 class BusinessCreateUpdateSerializer(serializers.ModelSerializer):
     owner = serializers.HiddenField(default=serializers.CurrentUserDefault())
     location = serializers.ListField()
-
+    is_activated = serializers.BooleanField(read_only=True)
     class Meta:
         model = Business
         fields = "__all__"

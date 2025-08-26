@@ -7,6 +7,7 @@ router = DefaultRouter()
 router.register(r'businesses', business.BusinessViewSet, basename='business')
 urlpatterns = [
     path("favorites/",favorites.FavoriteList.as_view()),
+    path("categories/",business.CategoryList.as_view()),
     path("favorites/create/",favorites.FavoriteCreate.as_view()),
 ]
 
