@@ -20,7 +20,7 @@ class FavoriteCreateSerializer(serializers.ModelSerializer):
     class Meta:
         model = Favorite
         fields = ['id', 'user', 'business']
-        validators = []  # disable DRF's automatic UniqueTogetherValidator
+        validators = []  
 
     def validate(self, attrs):
         #double check: check if exists, check if added to favorites already for the user
@@ -28,11 +28,11 @@ class FavoriteCreateSerializer(serializers.ModelSerializer):
         business_id = attrs['business']
         
         # 1. exists?
-        try:
-            business = Business.objects.get(id=business_id)
-        except Business.DoesNotExist:
-            raise ValidationError({"detail": "this business is not valid, try a valid one"})
-        
+        business = Business.objects.filter(id=business_id,is_activated=True)
+        if not business.exists():
+            raise ValidationError({'detail':"The business is not valid"})
+        business = business.first()
+     
         # 2. added to favorites?
         if Favorite.objects.filter(user=user, business=business).exists():
             raise ValidationError({'detail': "This Business had added to Favorites before"})
