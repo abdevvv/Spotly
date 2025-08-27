@@ -1,3 +1,5 @@
+from django.db.models import Avg
+
 from rest_framework import viewsets,generics
 from rest_framework.permissions import IsAuthenticated
 from django_filters.rest_framework import DjangoFilterBackend
@@ -15,7 +17,7 @@ class CategoryList(generics.ListAPIView):
 
 
 class BusinessViewSet(viewsets.ModelViewSet):
-    queryset = Business.objects.select_related("category",).filter(is_activated=True)
+    queryset = Business.objects.select_related("category",).annotate(_avg_rate=Avg("review__rate")).filter(is_activated=True)
     filter_backends = [DjangoFilterBackend]
     filterset_class = BusinessFilter
     

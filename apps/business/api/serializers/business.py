@@ -18,7 +18,7 @@ class BusinessListSerializer(serializers.ModelSerializer):
     distance = serializers.CharField(required=False)
     class Meta:
         model = Business
-        fields = ['id','name','location','distance']
+        fields = ['id','name','location','distance','rate_avg']
     
     #[x,y]
     def get_location(self,obj):
