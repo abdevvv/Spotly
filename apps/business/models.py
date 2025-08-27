@@ -10,6 +10,7 @@ class Category(models.Model):
     def __str__(self):
         return f" {self.id} - {self.title}"
 
+
 class Business(models.Model):
     name = models.CharField(max_length=150)
     description = models.TextField()
@@ -32,6 +33,8 @@ class Business(models.Model):
         indexes = [
             GistIndex(fields=["location"]),
         ]
+
+
 class Review(models.Model):
     user = models.ForeignKey("users.User", on_delete=models.CASCADE)
     business = models.ForeignKey(Business,on_delete=models.CASCADE)

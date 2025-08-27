@@ -22,15 +22,15 @@ from django.conf.urls.static import static
 
 from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, SpectacularSwaggerView
 
-
+API_PREFIX = settings.API_PREFIX
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('auth/', include('apps.users.api.urls')),
-    path('', include('apps.business.api.urls')),
 
-]+ static(settings.MEDIA_URL , document_root = settings.MEDIA_ROOT)
+    path(f'{API_PREFIX}auth/', include('apps.users.api.urls')),
+    path(f'{API_PREFIX}', include('apps.business.api.urls')),
 
+]
 
 #swagger
 urlpatterns += [ 
@@ -39,3 +39,7 @@ urlpatterns += [
     path('api/schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
     path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
     ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

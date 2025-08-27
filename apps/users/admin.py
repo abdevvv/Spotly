@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.http import HttpRequest
 
-from .models import User, ResetPassword
+from .models import User
 
 from unfold.admin import ModelAdmin
 from unfold.decorators import display
@@ -71,11 +71,3 @@ class UserAdmin(BaseUserAdmin, ModelAdmin):
     @display(description=("Created"))
     def display_created(self, instance: User):
         return instance.date_joined
-    
-    def has_add_permission(self, request: HttpRequest) -> bool:
-        return False
-
-@admin.register(ResetPassword)
-class ResetAdmin(ModelAdmin):
-    fields= ['user','token',"is_checked"]
-    list_display = ['user',"is_checked"]
