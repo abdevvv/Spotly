@@ -117,11 +117,11 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
-        'NAME': os.environ.get("DB_NAME"),
-        'USER': os.environ.get("DB_USER"),
-        'PASSWORD': os.environ.get("DB_PASSWORD"),
-        'HOST': os.environ.get("DB_HOST"),
-        'PORT': os.environ.get("DB_PORT"),
+        'NAME': os.environ.get("POSTGRES_DB"),
+        'USER': os.environ.get("POSTGRES_USER"),
+        'PASSWORD': os.environ.get("POSTGRES_PASSWORD"),
+        'HOST': os.environ.get("POSTGRES_HOST"),
+        'PORT': os.environ.get("PORT"),
     }
 }
 
@@ -156,6 +156,8 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+API_PREFIX = 'api/v1/'
 
 #email config
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
@@ -322,17 +324,7 @@ UNFOLD = {
                     },
                   ],
             },
-            {
-                "title": _("Users Utils"),
-                "separator": True,  # Top border
-                "items": [
-                    {
-                        "title": _("Reset Password Requests"),
-                        "icon": "Key",
-                        "link": reverse_lazy("admin:users_resetpassword_changelist"),
-                    },
-                  ],
-            },
+            
             { 
                 "title": _("Users"),
 

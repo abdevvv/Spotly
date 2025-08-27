@@ -18,7 +18,7 @@ class BusinessListSerializer(serializers.ModelSerializer):
     distance = serializers.CharField(required=False)
     class Meta:
         model = Business
-        fields = ['id','name','location','distance','rate_avg']
+        fields = ['id','name','location','distance',"category",'rate_avg']
     
     #[x,y]
     def get_location(self,obj):
@@ -37,8 +37,7 @@ class BusinessDetailSerializer(serializers.ModelSerializer):
     def get_location(self,obj):
         return [obj.location.x, obj.location.y] if obj.location else None
 
-    # def get_category(self,obj):
-    #     return obj.category.title
+
 
 class BusinessCreateUpdateSerializer(serializers.ModelSerializer):
     owner = serializers.HiddenField(default=serializers.CurrentUserDefault())
