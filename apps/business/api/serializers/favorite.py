@@ -4,7 +4,7 @@ from rest_framework import serializers
 
 from apps.business.models import Business,Favorite
 from apps.business.api.serializers.business import BusinessListSerializer
-
+from apps.business.utilities import get_business
 
 #Favorite
 class FavoriteListSerializer(serializers.ModelSerializer):
@@ -28,11 +28,7 @@ class FavoriteCreateSerializer(serializers.ModelSerializer):
         business_id = attrs['business']
         
         # 1. exists?
-        business = Business.objects.filter(id=business_id,is_activated=True)
-        if not business.exists():
-            raise ValidationError({'detail':"The business is not valid"})
-        business = business.first()
-     
+        business =  get_business(business_id)
         # 2. added to favorites?
         if Favorite.objects.filter(user=user, business=business).exists():
             raise ValidationError({'detail': "This Business had added to Favorites before"})

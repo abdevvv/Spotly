@@ -10,7 +10,7 @@ from unfold.admin import ModelAdmin
 @admin.register(Business)
 class BusinessAdmin(ModelAdmin):
     fields = ['name','description','owner','category','address',"location",'phone','website','image',"is_activated"]
-    list_display = ['name', 'owner', 'category', 'created_at',"is_activated"]
+    list_display = ['name', 'owner', 'category', 'created_at',"is_activated",'rate_avg']
     list_editable = ['is_activated']
 
    
