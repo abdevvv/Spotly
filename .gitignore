@@ -23,6 +23,7 @@ static/
 venv/
 .env/
 env/
+.env.prod
 .venv/
 
 # PyInstaller
