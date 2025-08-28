@@ -2,12 +2,10 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.http import HttpRequest
 
-from .models import User, ResetPassword
+from .models import User
 
-from rest_framework.authtoken.models import Token
-from unfold.contrib.forms.widgets import WysiwygWidget
-from unfold.admin import ModelAdmin, TabularInline
-from unfold.decorators import action, display
+from unfold.admin import ModelAdmin
+from unfold.decorators import display
 from unfold.forms import AdminPasswordChangeForm, UserChangeForm, UserCreationForm
 
 
@@ -21,21 +19,18 @@ class UserAdmin(BaseUserAdmin, ModelAdmin):
     change_password_form = AdminPasswordChangeForm
     list_display = [
         "display_header",
-        "is_active",
         "display_staff",
         "display_superuser",
         "display_created",
+        "display_owner",
     ]
     fieldsets = (
-        (None, {"fields": ("username", "password",'email','phoneNumber','image')}),
+        (None, {"fields": ("username", "password",'email','phoneNumber','image','role')}),
         (
             ("Personal info"),
             {"fields": (("first_name", "last_name",),)},
         ),
-        (
-            ("Activation"),
-            {"fields": (("is_activated"),)},
-        ),
+   
         (
             ("Permissions"),
             {
@@ -64,6 +59,10 @@ class UserAdmin(BaseUserAdmin, ModelAdmin):
     @display(description=("Staff"), boolean=True)
     def display_staff(self, instance: User):
         return instance.is_staff
+    
+    @display(description=("Owner"), boolean=True)
+    def display_owner(self, instance: User):
+        return instance.is_owner
 
     @display(description=("Superuser"), boolean=True)
     def display_superuser(self, instance: User):
@@ -72,11 +71,3 @@ class UserAdmin(BaseUserAdmin, ModelAdmin):
     @display(description=("Created"))
     def display_created(self, instance: User):
         return instance.date_joined
-    
-    def has_add_permission(self, request: HttpRequest) -> bool:
-        return False
-
-@admin.register(ResetPassword)
-class ResetAdmin(ModelAdmin):
-    fields= ['user','token',"is_checked"]
-    list_display = ['user',"is_checked"]

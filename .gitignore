@@ -8,9 +8,12 @@ __pycache__/
 db.sqlite3
 media/
 staticfiles/
+static/
+=======
 
 # If using local env vars
 .env
+.env.prod
 *.env
 
 # Byte-compiled / optimized / DLL files

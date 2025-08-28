@@ -40,10 +40,11 @@ DEFUALT_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "drf_spectacular"
     ]
 
 
-LOCAL_APPS = ['apps.users',]
+LOCAL_APPS = ['apps.users',"apps.business"]
 
 
 THIRD_PARTY_APPS = [
@@ -52,6 +53,7 @@ THIRD_PARTY_APPS = [
     'django_filters',
     'querycount',
     'django_cleanup',
+    "location_field",
     ]
 
 
@@ -75,7 +77,17 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Spotly API',
+    'DESCRIPTION': 'geo-powered business directory built with Django & PostGIS, featuring location-based search, category filtering, ratings & reviews, and interactive map integration.',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+}
+
+
 CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'config.urls'
@@ -104,10 +116,15 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': os.environ.get("POSTGRES_DB"),
+        'USER': os.environ.get("POSTGRES_USER"),
+        'PASSWORD': os.environ.get("POSTGRES_PASSWORD"),
+        'HOST': os.environ.get("POSTGRES_HOST"),
+        'PORT': os.environ.get("PORT"),
     }
 }
+
 AUTH_USER_MODEL = 'users.User'
 
 # Password validation
@@ -139,6 +156,8 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+API_PREFIX = 'api/v1/'
 
 #email config
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
@@ -228,8 +247,8 @@ SIMPLE_JWT = {
 
 #unfold
 UNFOLD = {
-    "SITE_TITLE": 'config Application',
-    "SITE_HEADER": 'config Dashboard',
+    "SITE_TITLE": 'Spotly Application',
+    "SITE_HEADER": 'Spotly Dashboard',
     "SITE_URL": "/admin/",
     "SITE_SYMBOL": "School",  # symbol from icon set
     "SHOW_HISTORY": True, # show/hide "History" button, default: True
@@ -279,16 +298,33 @@ UNFOLD = {
                   ],
             },
             {
-                "title": _("Users Utils"),
+                "title": _("Business"),
                 "separator": True,  # Top border
                 "items": [
                     {
-                        "title": _("Reset Password Requests"),
-                        "icon": "Key",
-                        "link": reverse_lazy("admin:users_resetpassword_changelist"),
+                        "title": _("Business"),
+                        "icon": "Business_"
+                        "Center",
+                        "link": reverse_lazy("admin:business_business_changelist"),
+                    },
+                    {
+                        "title": _("Category"),
+                        "icon": "Category",
+                        "link": reverse_lazy("admin:business_category_changelist"),
+                    },
+                    {
+                        "title": _("Review"),
+                        "icon": "Reviews",
+                        "link": reverse_lazy("admin:business_review_changelist"),
+                    },
+                    {
+                        "title": _("Favorite"),
+                        "icon": "Favorite",
+                        "link": reverse_lazy("admin:business_favorite_changelist"),
                     },
                   ],
             },
+            
             { 
                 "title": _("Users"),
 
