@@ -1,0 +1,2426 @@
+{
+	"info": {
+		"_postman_id": "a472783b-cdfe-4f48-8d0d-d7bfa74589b2",
+		"name": "Spotly",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23843611",
+		"_collection_link": "https://martian-zodiac-641487.postman.co/workspace/Spotly~31a9ec2e-675e-462d-8349-da0e3994881d/collection/23843611-a472783b-cdfe-4f48-8d0d-d7bfa74589b2?action=share&source=collection_link&creator=23843611"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "thomas@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "thomas",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "thomasgamer",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "owner",
+									"description": "owner - customer",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "male",
+									"description": "male - female",
+									"type": "text"
+								},
+								{
+									"key": "phoneNumber",
+									"value": "011292392931",
+									"type": "text"
+								},
+								{
+									"key": "dateBirth",
+									"value": "2000-10-1",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Abd Elrahaman/Downloads/Frame 28.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/auth/register/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"register",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "thomas@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "thomas",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "thomasgamer",
+											"type": "text"
+										},
+										{
+											"key": "role",
+											"value": "owner",
+											"description": "owner - customer",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"description": "male - female",
+											"type": "text"
+										},
+										{
+											"key": "phoneNumber",
+											"value": "011292392931",
+											"type": "text"
+										},
+										{
+											"key": "dateBirth",
+											"value": "2000-10-1",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/Abd Elrahaman/Downloads/Frame 28.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/auth/register/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"auth",
+										"register",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 17 Aug 2025 16:30:43 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "214"
+								},
+								{
+									"key": "X-DjangoQueryCount-Count",
+									"value": "3"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"email\": \"thomas@gmail.com\",\n    \"username\": \"thomas\",\n    \"phoneNumber\": \"011292392931\",\n    \"image\": \"http://localhost:8000/media/Photos/users/25/08/17/Frame_28_page1XX.png\",\n    \"dateBirth\": \"2000-10-01\",\n    \"gender\": \"male\",\n    \"role\": \"owner\"\n}"
+						},
+						{
+							"name": "400 - email not valid",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "thomas@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "username",
+											"value": "thomas",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "thomasgamer",
+											"type": "text"
+										},
+										{
+											"key": "role",
+											"value": "owner",
+											"description": "owner - customer",
+											"type": "text"
+										},
+										{
+											"key": "gender",
+											"value": "male",
+											"description": "male - female",
+											"type": "text"
+										},
+										{
+											"key": "phoneNumber",
+											"value": "011292392931",
+											"type": "text"
+										},
+										{
+											"key": "dateBirth",
+											"value": "2000-10-1",
+											"type": "text"
+										},
+										{
+											"key": "image",
+											"type": "file",
+											"src": "/C:/Users/Abd Elrahaman/Downloads/Frame 28.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8000/auth/register/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"auth",
+										"register",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 17 Aug 2025 16:31:21 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "X-DjangoQueryCount-Count",
+									"value": "1"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": [\n        \"The user email had been used, try another email\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "thomas@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "thomasgamer",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/login/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"login",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "thomas@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "thomasgamer",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/auth/login/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"auth",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 17 Aug 2025 16:32:52 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "563"
+								},
+								{
+									"key": "X-DjangoQueryCount-Count",
+									"value": "1"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"Logged in Successfully\",\n    \"data\": {\n        \"email\": \"thomas@gmail.com\"\n    },\n    \"token\": {\n        \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzU1NDQ4NjcyLCJpYXQiOjE3NTU0NDgzNzIsImp0aSI6Ijg4Zjk2YmFmNjk2OTQ2MDFiZmE2OGE3MjkyNjQzMDM1IiwidXNlcl9pZCI6MX0.0nXL0QQaMppy0ZmbpaxMixYNKwUkrts2csRQPohetiM\",\n        \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc1NjMxMjM3MiwiaWF0IjoxNzU1NDQ4MzcyLCJqdGkiOiI4MTIxMDhlMzE0YzQ0ZGFjOTU1MzUzNWJmNjYxOGEzOSIsInVzZXJfaWQiOjF9.SYtwxqMbsGEx2eAMyQnR8D1jKTKfPrGR2anWRbaFUOQ\"\n    }\n}"
+						},
+						{
+							"name": "400 - email or password not valid",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "thomas@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "thomasgame",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/auth/login/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"auth",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 17 Aug 2025 16:33:12 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "51"
+								},
+								{
+									"key": "X-DjangoQueryCount-Count",
+									"value": "1"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": [\n        \"The email or password is not valid .\"\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Business",
+			"item": [
+				{
+					"name": "Businesses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/businesses/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"businesses",
+								""
+							],
+							"query": [
+								{
+									"key": "lat",
+									"value": "30.004753",
+									"description": "required if distance required",
+									"disabled": true
+								},
+								{
+									"key": "lng",
+									"value": "31.168364",
+									"description": "required if distance required",
+									"disabled": true
+								},
+								{
+									"key": "radius",
+									"value": "5000",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "business 2",
+									"disabled": true
+								},
+								{
+									"key": "address",
+									"value": "giza",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - get data without userlocation or radius",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "thomas@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "thomasgamer",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/businesses/1/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"businesses",
+										"1",
+										""
+									],
+									"query": [
+										{
+											"key": "lat",
+											"value": "30.004753",
+											"description": "nullable",
+											"disabled": true
+										},
+										{
+											"key": "lng",
+											"value": "31.168364",
+											"description": "nullable",
+											"disabled": true
+										},
+										{
+											"key": "radius",
+											"value": "5000",
+											"description": "nullable",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 22:59:18 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "232"
+								},
+								{
+									"key": "X-DjangoQueryCount-Count",
+									"value": "2"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"location\": [\n        31.1814319,\n        30.0024154\n    ],\n    \"name\": \"xx\",\n    \"description\": \"xx\",\n    \"address\": \"xx\",\n    \"phone\": \"0501844101\",\n    \"website\": \"https://www.tomatocomp.com\",\n    \"image\": null,\n    \"is_activated\": false,\n    \"created_at\": \"2025-08-17\",\n    \"owner\": 1,\n    \"category\": 1\n}"
+						},
+						{
+							"name": "200 - get data with user location (distance added)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "thomas@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "thomasgamer",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/businesses/1/?lat=30.004753&lng=31.168364",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"businesses",
+										"1",
+										""
+									],
+									"query": [
+										{
+											"key": "lat",
+											"value": "30.004753",
+											"description": "nullable"
+										},
+										{
+											"key": "lng",
+											"value": "31.168364",
+											"description": "nullable"
+										},
+										{
+											"key": "radius",
+											"value": "5000",
+											"description": "nullable",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 22:59:51 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "261"
+								},
+								{
+									"key": "X-DjangoQueryCount-Count",
+									"value": "2"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"location\": [\n        31.1814319,\n        30.0024154\n    ],\n    \"distance\": \"1287.18077694 m\",\n    \"name\": \"xx\",\n    \"description\": \"xx\",\n    \"address\": \"xx\",\n    \"phone\": \"0501844101\",\n    \"website\": \"https://www.tomatocomp.com\",\n    \"image\": null,\n    \"is_activated\": false,\n    \"created_at\": \"2025-08-17\",\n    \"owner\": 1,\n    \"category\": 1\n}"
+						},
+						{
+							"name": "200 - filter with radius",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "thomas@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "thomasgamer",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/businesses/1/?lat=30.004753&lng=31.168364&radius=5000",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"businesses",
+										"1",
+										""
+									],
+									"query": [
+										{
+											"key": "lat",
+											"value": "30.004753",
+											"description": "nullable"
+										},
+										{
+											"key": "lng",
+											"value": "31.168364",
+											"description": "nullable"
+										},
+										{
+											"key": "radius",
+											"value": "5000",
+											"description": "nullable"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 23:02:42 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "261"
+								},
+								{
+									"key": "X-DjangoQueryCount-Count",
+									"value": "2"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 1,\n    \"location\": [\n        31.1814319,\n        30.0024154\n    ],\n    \"distance\": \"1287.18077694 m\",\n    \"name\": \"xx\",\n    \"description\": \"xx\",\n    \"address\": \"xx\",\n    \"phone\": \"0501844101\",\n    \"website\": \"https://www.tomatocomp.com\",\n    \"image\": null,\n    \"is_activated\": false,\n    \"created_at\": \"2025-08-17\",\n    \"owner\": 1,\n    \"category\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Business",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/businesses/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"businesses",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - created successfully",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/businesses/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"businesses",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 23:49:34 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "194"
+								},
+								{
+									"key": "X-DjangoQueryCount-Count",
+									"value": "3"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 4,\n    \"location\": [\n        30.0024154,\n        31.1814319\n    ],\n    \"name\": \"user 1\",\n    \"description\": \"ss\",\n    \"address\": \"xx\",\n    \"phone\": null,\n    \"website\": null,\n    \"image\": null,\n    \"is_activated\": false,\n    \"created_at\": \"2025-08-24\",\n    \"category\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Business (Partial)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"business 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/businesses/3/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"businesses",
+								"3",
+								""
+							],
+							"query": [
+								{
+									"key": "radius",
+									"value": "5000",
+									"description": "nullable",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"business 2\",\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/businesses/3/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"businesses",
+										"3",
+										""
+									],
+									"query": [
+										{
+											"key": "radius",
+											"value": "5000",
+											"description": "nullable",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 23:54:41 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "197"
+								},
+								{
+									"key": "X-DjangoQueryCount-Count",
+									"value": "4"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"location\": [\n        30.0024154,\n        31.1814319\n    ],\n    \"name\": \"business 2\",\n    \"description\": \"ss\",\n    \"address\": \"xx\",\n    \"phone\": null,\n    \"website\": null,\n    \"image\": null,\n    \"is_activated\": true,\n    \"created_at\": \"2025-08-24\",\n    \"category\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Business",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"user 1\",\r\n    \"description\":\"ss\",\r\n    \"location\":[30.0024154,31.1814319],\r\n    \"address\":\"xx\",\r\n    \"category\":\"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/businesses/3/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"businesses",
+								"3",
+								""
+							],
+							"query": [
+								{
+									"key": "radius",
+									"value": "5000",
+									"description": "nullable",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"user 1\",\r\n    \"description\":\"ss\",\r\n    \"location\":[30.0024154,31.1814319],\r\n    \"address\":\"xx\",\r\n    \"category\":\"1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/businesses/3/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"businesses",
+										"3",
+										""
+									],
+									"query": [
+										{
+											"key": "radius",
+											"value": "5000",
+											"description": "nullable",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Sun, 24 Aug 2025 23:56:01 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "193"
+								},
+								{
+									"key": "X-DjangoQueryCount-Count",
+									"value": "5"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 3,\n    \"location\": [\n        30.0024154,\n        31.1814319\n    ],\n    \"name\": \"user 1\",\n    \"description\": \"ss\",\n    \"address\": \"xx\",\n    \"phone\": null,\n    \"website\": null,\n    \"image\": null,\n    \"is_activated\": true,\n    \"created_at\": \"2025-08-24\",\n    \"category\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Business",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/businesses/1/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"businesses",
+								"1",
+								""
+							],
+							"query": [
+								{
+									"key": "radius",
+									"value": "5000",
+									"description": "nullable",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "204",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/businesses/1/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"businesses",
+										"1",
+										""
+									],
+									"query": [
+										{
+											"key": "radius",
+											"value": "5000",
+											"description": "nullable",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 25 Aug 2025 00:10:44 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.2"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "0"
+								},
+								{
+									"key": "X-DjangoQueryCount-Count",
+									"value": "8"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Get Categories",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "200 - valid",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/categories/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"categories",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 26 Aug 2025 23:21:43 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "23"
+								},
+								{
+									"key": "X-DjangoQueryCount-Count",
+									"value": "2"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"title\": \"xx\"\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Favorite",
+			"item": [
+				{
+					"name": "Creat Favorites",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "business",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/favorites/create/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"favorites",
+								"create",
+								""
+							],
+							"query": [
+								{
+									"key": "radius",
+									"value": "5000",
+									"description": "nullable",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - valid",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "business",
+											"value": "2",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/favorite/create/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"favorite",
+										"create",
+										""
+									],
+									"query": [
+										{
+											"key": "radius",
+											"value": "5000",
+											"description": "nullable",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 26 Aug 2025 01:10:39 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "74"
+								},
+								{
+									"key": "X-DjangoQueryCount-Count",
+									"value": "4"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": \"Business added to favorites successfully ✅\",\n    \"data\": {\n        \"id\": 10\n    }\n}"
+						},
+						{
+							"name": "400 - id of business not valid",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "business",
+											"value": "21",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/favorites/create/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"favorites",
+										"create",
+										""
+									],
+									"query": [
+										{
+											"key": "radius",
+											"value": "5000",
+											"description": "nullable",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 26 Aug 2025 01:13:10 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "58"
+								},
+								{
+									"key": "X-DjangoQueryCount-Count",
+									"value": "2"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": [\n        \"this business is not valid, try a valid one\"\n    ]\n}"
+						},
+						{
+							"name": "400 - already added",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "business",
+											"value": "5",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/favorites/create/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"favorites",
+										"create",
+										""
+									],
+									"query": [
+										{
+											"key": "radius",
+											"value": "5000",
+											"description": "nullable",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 26 Aug 2025 01:13:29 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "58"
+								},
+								{
+									"key": "X-DjangoQueryCount-Count",
+									"value": "3"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": [\n        \"This Business had added to Favorites before\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Favorites",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/favorites/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"favorites",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/favorites/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"favorites",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 26 Aug 2025 01:14:12 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "155"
+								},
+								{
+									"key": "X-DjangoQueryCount-Count",
+									"value": "4"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 3,\n        \"business\": {\n            \"id\": 5,\n            \"name\": \"user 1\",\n            \"location\": [\n                30.0024154,\n                31.1814319\n            ]\n        }\n    },\n    {\n        \"id\": 10,\n        \"business\": {\n            \"id\": 2,\n            \"name\": \"1\",\n            \"location\": [\n                31.170617,\n                30.008263\n            ]\n        }\n    }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Reviews",
+			"item": [
+				{
+					"name": "Get Review",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/reviews/2/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"reviews",
+										"2",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Tue, 26 Aug 2025 23:43:58 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "151"
+								},
+								{
+									"key": "X-DjangoQueryCount-Count",
+									"value": "4"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 2,\n        \"user\": \"thomas\",\n        \"rate\": 4,\n        \"comment\": \"11\",\n        \"created_at\": \"2025-08-26\"\n    },\n    {\n        \"id\": 3,\n        \"user\": \"7amota\",\n        \"rate\": 2,\n        \"comment\": \"22\",\n        \"created_at\": \"2025-08-26\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create Review",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "rate",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "business",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "comment",
+									"value": "x",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/reviews/create/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"reviews",
+								"create",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "200 - valid",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "rate",
+											"value": "5",
+											"type": "text"
+										},
+										{
+											"key": "business",
+											"value": "5",
+											"type": "text"
+										},
+										{
+											"key": "comment",
+											"value": "x",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/reviews/create/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"reviews",
+										"create",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 27 Aug 2025 12:38:16 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "31"
+								},
+								{
+									"key": "X-DjangoQueryCount-Count",
+									"value": "5"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 7,\n    \"rate\": 5,\n    \"comment\": \"x\"\n}"
+						},
+						{
+							"name": "400 - user an review already exists",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "rate",
+											"value": "5",
+											"type": "text"
+										},
+										{
+											"key": "business",
+											"value": "5",
+											"type": "text"
+										},
+										{
+											"key": "comment",
+											"value": "x",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/reviews/create/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"reviews",
+										"create",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 27 Aug 2025 12:34:28 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "X-DjangoQueryCount-Count",
+									"value": "4"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": [\n        \"the user has already rated the business before \"\n    ]\n}"
+						},
+						{
+							"name": "400 - rate should be between 0-5",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "rate",
+											"value": "7",
+											"type": "text"
+										},
+										{
+											"key": "business",
+											"value": "5",
+											"type": "text"
+										},
+										{
+											"key": "comment",
+											"value": "x",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/reviews/create/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"reviews",
+										"create",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 27 Aug 2025 12:34:48 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "63"
+								},
+								{
+									"key": "X-DjangoQueryCount-Count",
+									"value": "1"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": [\n        \"the value of rate field shouldn`t be more than 5\"\n    ]\n}"
+						},
+						{
+							"name": "400 - business id is not valid",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "rate",
+											"value": "5",
+											"type": "text"
+										},
+										{
+											"key": "business",
+											"value": "6",
+											"type": "text"
+										},
+										{
+											"key": "comment",
+											"value": "x",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/reviews/create/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"reviews",
+										"create",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 27 Aug 2025 12:35:25 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.2"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, origin"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "40"
+								},
+								{
+									"key": "X-DjangoQueryCount-Count",
+									"value": "2"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"detail\": [\n        \"The business is not valid\"\n    ]\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "http://localhost:8000",
+			"type": "string"
+		}
+	]
+}
